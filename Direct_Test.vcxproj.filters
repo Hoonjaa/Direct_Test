@@ -11,19 +11,43 @@
     <Filter Include="Engine">
       <UniqueIdentifier>{065aa14c-bcf6-43c6-ac48-db8249baddb3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\01.Header">
+      <UniqueIdentifier>{d48b3768-004c-4105-a1dc-d99699393ac1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\02.Core">
+      <UniqueIdentifier>{7f1d4e9c-f29c-49c4-a09a-db2a7be92d3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03.Manager">
+      <UniqueIdentifier>{69fa180d-ef53-410e-baaf-16e9642f56a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04.Object">
+      <UniqueIdentifier>{9a8f14d9-531f-4e79-b567-52cfb06bde5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\05.Scene">
+      <UniqueIdentifier>{82141d82-594b-4ae6-84c7-9010bf18d81d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\06.Time">
+      <UniqueIdentifier>{e8e5546d-def8-489f-872e-03064ddc9574}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Camera">
+      <UniqueIdentifier>{556e89ec-d8e1-419b-bd17-b0a3326b170a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\08.Mesh">
+      <UniqueIdentifier>{d116ac14-b2b6-43d5-8dec-2f9b7dccfdc0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Direct_Test.h">
-      <Filter>Define</Filter>
-    </ClInclude>
-    <ClInclude Include="framework.h">
-      <Filter>Define</Filter>
-    </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>Define</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Define</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Engine\01.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Direct_Test.h">
+      <Filter>Engine\02.Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -40,8 +64,11 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Engine\01.Header</Filter>
+    </ClCompile>
     <ClCompile Include="Direct_Test.cpp">
-      <Filter>Engine</Filter>
+      <Filter>Engine\02.Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
