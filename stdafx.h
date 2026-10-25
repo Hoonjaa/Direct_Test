@@ -27,6 +27,8 @@
 
 #include <dxgidebug.h>
 
+#include "define.h"
+
 using namespace DirectX;
 using namespace DirectX::PackedVector;
 
