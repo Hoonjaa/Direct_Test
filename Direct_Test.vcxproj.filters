@@ -55,6 +55,9 @@
     <ClInclude Include="define.h">
       <Filter>Engine\01.Header</Filter>
     </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Engine\06.Time</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Direct_Test.rc">
@@ -78,6 +81,9 @@
     </ClCompile>
     <ClCompile Include="Core.cpp">
       <Filter>Engine\02.Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Engine\06.Time</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
