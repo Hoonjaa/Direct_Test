@@ -36,8 +36,10 @@ private:
 	UINT64 FenceValues[SwapChainBuffers];
 	HANDLE FenceEvent;
 
-	_TCHAR FrameRate[50];
+	Timer coreTime;
+	KeyMgr KeyManager;
 
+	_TCHAR FrameRate[50];
 public:
 	Core();
 	~Core();

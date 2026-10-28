@@ -35,6 +35,9 @@
     <Filter Include="Engine\08.Mesh">
       <UniqueIdentifier>{d116ac14-b2b6-43d5-8dec-2f9b7dccfdc0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03.Manager\KeyMgr">
+      <UniqueIdentifier>{e5994da8-4310-4aeb-b639-f2f60b4a4600}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Resource.h">
@@ -57,6 +60,9 @@
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Engine\06.Time</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyMgr.h">
+      <Filter>Engine\03.Manager\KeyMgr</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +90,9 @@
     </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>Engine\06.Time</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyMgr.cpp">
+      <Filter>Engine\03.Manager\KeyMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

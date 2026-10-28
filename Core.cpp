@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "Core.h"
 
+#include "Timer.h"
+#include "KeyMgr.h"
+
 Core::Core()
 {
 	handle = NULL;
@@ -52,7 +55,8 @@ int Core::Init(HWND handle, HINSTANCE hInstance)
 	CreateRtvAndDsvDescriptorHeaps();
 	CreateDepthStencilView();
 
-
+	coreTime.Init();
+	KeyManager.Init();
 
 	BuildObjects();
 	return S_OK;
@@ -93,8 +97,8 @@ void Core::OnDestroy()
 
 void Core::Progress()
 {
-	
-
+	coreTime.Update();
+	KeyManager.Update();
 
 	HRESULT hResult = d3dCommandAllocator->Reset();
 	hResult = d3dCommandList->Reset(d3dCommandAllocator, NULL);
