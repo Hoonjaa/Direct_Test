@@ -71,7 +71,10 @@ public:
 	void Init();
 	void Update();
 
-	KEY_STATE GetKeyState(KEY key) { return vecKey[(int)key].state; }
+	KEY_STATE GetKeyState(KEY key) const { return vecKey[(int)key].state; }
 	const POINT& GetMouseDelta() const { return MouseDelta; }
+
+	bool IsTapped(KEY key) const { return GetKeyState(key) == KEY_STATE::TAP; }
+	bool IsHeld(KEY key) const { return GetKeyState(key) == KEY_STATE::HOLD; }
 };
 
