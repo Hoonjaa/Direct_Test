@@ -38,6 +38,9 @@
     <Filter Include="Engine\03.Manager\KeyMgr">
       <UniqueIdentifier>{e5994da8-4310-4aeb-b639-f2f60b4a4600}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03.Manager\SceneMgr">
+      <UniqueIdentifier>{d4088f5f-fcf6-4435-bfd1-d388462d9935}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Resource.h">
@@ -63,6 +66,9 @@
     </ClInclude>
     <ClInclude Include="KeyMgr.h">
       <Filter>Engine\03.Manager\KeyMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMgr.h">
+      <Filter>Engine\03.Manager\SceneMgr</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +99,9 @@
     </ClCompile>
     <ClCompile Include="KeyMgr.cpp">
       <Filter>Engine\03.Manager\KeyMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMgr.cpp">
+      <Filter>Engine\03.Manager\SceneMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
