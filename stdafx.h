@@ -39,3 +39,172 @@ using Microsoft::WRL::ComPtr;
 #pragma comment(lib, "dxgi.lib")
 
 #pragma comment(lib, "dxguid.lib")
+
+namespace Vector3
+{
+	inline XMFLOAT3 XMVectorToFloat3(XMVECTOR& Vector)
+	{
+		XMFLOAT3 Result;
+		XMStoreFloat3(&Result, Vector);
+		return(Result);
+	}
+	inline XMFLOAT3 ScalarProduct(XMFLOAT3& Vector, float Scalar, bool Normalize = true)
+	{
+		XMFLOAT3 Result;
+		if (Normalize)
+			XMStoreFloat3(&Result, XMVector3Normalize(XMLoadFloat3(&Vector)) * Scalar);
+		else
+			XMStoreFloat3(&Result, XMLoadFloat3(&Vector) * Scalar);
+		return(Result);
+	}
+	inline XMFLOAT3 Add(const XMFLOAT3& Vector1, const XMFLOAT3& Vector2)
+	{
+		XMFLOAT3 Result;
+		XMStoreFloat3(&Result, XMLoadFloat3(&Vector1) + XMLoadFloat3(&Vector2));
+		return(Result);
+	}
+	inline XMFLOAT3 Add(XMFLOAT3& Vector1, XMFLOAT3& Vector2, float Scalar)
+	{
+		XMFLOAT3 Result;
+		XMStoreFloat3(&Result, XMLoadFloat3(&Vector1) + (XMLoadFloat3(&Vector2) * Scalar));
+		return(Result);
+	}
+	inline XMFLOAT3 Subtract(XMFLOAT3& Vector1, XMFLOAT3& Vector2)
+	{
+		XMFLOAT3 Result;
+		XMStoreFloat3(&Result, XMLoadFloat3(&Vector1) - XMLoadFloat3(&Vector2));
+		return(Result);
+	}
+	inline float DotProduct(XMFLOAT3& Vector1, XMFLOAT3& Vector2)
+	{
+		XMFLOAT3 Result;
+		XMStoreFloat3(&Result, XMVector3Dot(XMLoadFloat3(&Vector1), XMLoadFloat3(&Vector2)));
+		return(Result.x);
+	}
+	inline XMFLOAT3 CrossProduct(XMFLOAT3& Vector1, XMFLOAT3& Vector2, bool Normalize = true)
+	{
+		XMFLOAT3 Result;
+		if (Normalize)
+			XMStoreFloat3(&Result, XMVector3Normalize(XMVector3Cross(XMLoadFloat3(&Vector1), XMLoadFloat3(&Vector2))));
+		else
+			XMStoreFloat3(&Result, XMVector3Cross(XMLoadFloat3(&Vector1), XMLoadFloat3(&Vector2)));
+		return(Result);
+	}
+	inline XMFLOAT3 Normalize(XMFLOAT3& Vector)
+	{
+		XMFLOAT3 Result;
+		XMStoreFloat3(&Result, XMVector3Normalize(XMLoadFloat3(&Vector)));
+		return(Result);
+	}
+	inline float Length(XMFLOAT3& Vector)
+	{
+		XMFLOAT3 Result;
+		XMStoreFloat3(&Result, XMVector3Length(XMLoadFloat3(&Vector)));
+		return(Result.x);
+	}
+	inline float Angle(const XMVECTOR& Vector1, const XMVECTOR& Vector2)
+	{
+		XMVECTOR Angle = XMVector3AngleBetweenNormals(Vector1, Vector2);
+		return(XMConvertToDegrees(XMVectorGetX(Angle)));
+	}
+	inline float Angle(XMFLOAT3& Vector1, XMFLOAT3& Vector2)
+	{
+		return(Angle(XMLoadFloat3(&Vector1), XMLoadFloat3(&Vector2)));
+	}
+	inline XMFLOAT3 TransformNormal(XMFLOAT3& Vector, const XMMATRIX& Transform)
+	{
+		XMFLOAT3 Result;
+		XMStoreFloat3(&Result, XMVector3TransformNormal(XMLoadFloat3(&Vector), Transform));
+		return(Result);
+	}
+	inline XMFLOAT3 TransformCoord(XMFLOAT3& Vector, const XMMATRIX& Transform)
+	{
+		XMFLOAT3 Result;
+		XMStoreFloat3(&Result, XMVector3TransformCoord(XMLoadFloat3(&Vector),Transform));
+		return(Result);
+	}
+	inline XMFLOAT3 TransformCoord(XMFLOAT3& Vector, XMFLOAT4X4& Matrix)
+	{
+		return(TransformCoord(Vector, XMLoadFloat4x4(&Matrix)));
+	}
+}
+
+namespace Vector4
+{
+	inline XMFLOAT4 Add(XMFLOAT4& Vector1, XMFLOAT4& Vector2)
+	{
+		XMFLOAT4 Result;
+		XMStoreFloat4(&Result, XMLoadFloat4(&Vector1) + XMLoadFloat4(&Vector2));
+		return(Result);
+	}
+	inline XMFLOAT4 Multiply(XMFLOAT4& Vector1, XMFLOAT4& Vector2)
+	{
+		XMFLOAT4 Result;
+		XMStoreFloat4(&Result, XMLoadFloat4(&Vector1) * XMLoadFloat4(&Vector2));
+		return(Result);
+	}
+	inline XMFLOAT4 Multiply(float Scalar, XMFLOAT4& Vector)
+	{
+		XMFLOAT4 Result;
+		XMStoreFloat4(&Result, Scalar * XMLoadFloat4(&Vector));
+		return(Result);
+	}
+}
+
+namespace Martix4x4
+{
+	inline XMFLOAT4X4 Identity()
+	{
+		XMFLOAT4X4 Result;
+		XMStoreFloat4x4(&Result, XMMatrixIdentity());
+		return(Result);
+	}
+	inline XMFLOAT4X4 Multiply(XMFLOAT4X4& Matrix1, XMFLOAT4X4& Matrix2)
+	{
+		XMFLOAT4X4 Result;
+		XMStoreFloat4x4(&Result, XMLoadFloat4x4(&Matrix1) * XMLoadFloat4x4(&Matrix2));
+		return(Result);
+	}
+	inline XMFLOAT4X4 Multiply(XMFLOAT4X4& Matrix1, XMMATRIX& Matrix2)
+	{
+		XMFLOAT4X4 Result;
+		XMStoreFloat4x4(&Result, XMLoadFloat4x4(&Matrix1) * Matrix2);
+		return(Result);
+	}
+	inline XMFLOAT4X4 Multiply(XMMATRIX& Matrix1, XMFLOAT4X4& Matrix2)
+	{
+		XMFLOAT4X4 Result;
+		XMStoreFloat4x4(&Result, Matrix1 * XMLoadFloat4x4(&Matrix2));
+		return(Result);
+	}
+	inline XMFLOAT4X4 Inverse(XMFLOAT4X4& Matrix)
+	{
+		XMFLOAT4X4 Result;
+		XMStoreFloat4x4(&Result, XMMatrixInverse(NULL, XMLoadFloat4x4(&Matrix)));
+		return(Result);
+	}
+	inline XMFLOAT4X4 Transpose(XMFLOAT4X4& Matrix)
+	{
+		XMFLOAT4X4 Result;
+		XMStoreFloat4x4(&Result, XMMatrixTranspose(XMLoadFloat4x4(&Matrix)));
+		return(Result);
+	}
+	inline XMFLOAT4X4 PerspectiveFovLH(float FovAngleY, float AspectRatio, float NearZ, float FarZ)
+	{
+		XMFLOAT4X4 Result;
+		XMStoreFloat4x4(&Result, XMMatrixPerspectiveFovLH(FovAngleY, AspectRatio, NearZ, FarZ));
+		return(Result);
+	}
+	inline XMFLOAT4X4 LookAtLH(XMFLOAT3& EyePosition, XMFLOAT3& LookAtPosition, XMFLOAT3& UpDirection)
+	{
+		XMFLOAT4X4 Result;
+		XMStoreFloat4x4(&Result, XMMatrixLookAtLH(XMLoadFloat3(&EyePosition), XMLoadFloat3(&LookAtPosition), XMLoadFloat3(&UpDirection)));
+		return(Result);
+	}
+	inline XMFLOAT4X4 LookToLH(XMFLOAT3& EyePosition, XMFLOAT3& LookToDirection, XMFLOAT3& UpDirection)
+	{
+		XMFLOAT4X4 Result;
+		XMStoreFloat4x4(&Result, XMMatrixLookToLH(XMLoadFloat3(&EyePosition), XMLoadFloat3(&LookToDirection), XMLoadFloat3(&UpDirection)));
+		return(Result);
+	}
+}
