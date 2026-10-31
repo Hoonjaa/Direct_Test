@@ -1,4 +1,8 @@
 #pragma once
+
+#include "Timer.h"
+#include "KeyMgr.h"
+
 class Core
 {
 private:

@@ -1,9 +1,6 @@
 #include "stdafx.h"
 #include "Core.h"
 
-#include "Timer.h"
-#include "KeyMgr.h"
-
 Core::Core()
 {
 	handle = NULL;
