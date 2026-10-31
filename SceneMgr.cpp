@@ -11,7 +11,7 @@ SceneMgr::~SceneMgr()
 {
 }
 
-void SceneMgr::Init(ID3D12Device* pd3dDevice, ID3D12GraphicsCommandList* pd3dCommandList)
+void SceneMgr::Init(ID3D12Device* Device, ID3D12GraphicsCommandList* CommandList)
 {
 	//Scene »ý¼º
 	// arrScene[(UINT)SCENE_TYPE::TEST] = new TestScene;
@@ -27,7 +27,7 @@ void SceneMgr::Update()
 	// currScene->Update();
 }
 
-void SceneMgr::Render(ID3D12GraphicsCommandList* pd3dCommandList)
+void SceneMgr::Render(ID3D12GraphicsCommandList* CommandList)
 {
 	//currScene->Render(pd3dCommandList);
 }
