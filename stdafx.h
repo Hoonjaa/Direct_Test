@@ -151,7 +151,7 @@ namespace Vector4
 	}
 }
 
-namespace Martix4x4
+namespace Matrix4x4
 {
 	inline XMFLOAT4X4 Identity()
 	{
